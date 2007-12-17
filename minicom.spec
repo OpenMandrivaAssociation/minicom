@@ -22,7 +22,6 @@ Requires:	setserial
 BuildRequires:	ncurses-devel
 BuildRequires:	libtermcap-devel
 #BuildRequires:	liblockdev-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Minicom is a simple text-based modem control and terminal emulation program
