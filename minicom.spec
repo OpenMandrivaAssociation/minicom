@@ -1,7 +1,7 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
