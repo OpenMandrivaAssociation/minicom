@@ -19,7 +19,7 @@ Patch10:	minicom-2.2-staticbuf.patch
 Requires:	lrzsz
 Requires:	setserial
 BuildRequires:	ncurses-devel
-BuildRequires:	libtermcap-devel
+BuildConflicts:	libtermcap-devel
 #BuildRequires:	liblockdev-devel
 Buildroot:	%{_tmppath}/%{name}-%{version}
 
