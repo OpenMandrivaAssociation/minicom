@@ -1,20 +1,19 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.2
-Release:	%mkrel 2
+Version:	2.3
+Release:	%mkrel 1
 License:	GPL
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
 Source:		http://alioth.debian.org/frs/download.php/1806/minicom-%{version}.tar.gz
 Source1:	%{name}.bash-completion
-Patch1:		minicom-2.2-ncurses.patch
-Patch2:		minicom-2.2-drop-privs.patch
-Patch3:		minicom-2.2-wchar.patch
+Patch1:		minicom-2.3-ncurses.patch
+Patch2:		minicom-2.3-drop-privs.patch
+Patch3:		minicom-2.3-wchar.patch
 Patch4:		minicom-2.2-umask.patch
-Patch5:		minicom-2.2-setlocale.patch
 Patch6:		minicom-2.2-spaces.patch
-Patch7:		minicom-2.2-gotodir.patch
-Patch8:		minicom-2.2-rh.patch
+Patch7:		minicom-2.3-gotodir.patch
+Patch8:		minicom-2.3-rh.patch
 Patch9:		minicom-2.2-esc.patch
 Patch10:	minicom-2.2-staticbuf.patch
 Requires:	lrzsz
@@ -42,7 +41,6 @@ read/write permissions on the serial port devices in order to use minicom.
 %patch2 -p1 -b .privs
 %patch3 -p1 -b .wchar
 %patch4 -p1 -b .umask
-%patch5 -p1 -b .setlocale
 %patch6 -p1 -b .spaces
 %patch7 -p1 -b .gotodir
 ##%patch8 -p1 -b .rh
