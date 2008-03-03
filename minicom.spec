@@ -1,7 +1,7 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
@@ -18,9 +18,10 @@ Patch9:		minicom-2.2-esc.patch
 Patch10:	minicom-2.2-staticbuf.patch
 Requires:	lrzsz
 Requires:	setserial
+Requires:	lockdev-baudboy
 BuildRequires:	ncurses-devel
 BuildConflicts:	libtermcap-devel
-#BuildRequires:	liblockdev-devel
+BuildRequires:	liblockdev-devel
 Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -43,7 +44,7 @@ read/write permissions on the serial port devices in order to use minicom.
 %patch4 -p1 -b .umask
 %patch6 -p1 -b .spaces
 %patch7 -p1 -b .gotodir
-##%patch8 -p1 -b .rh
+%patch8 -p1 -b .rh
 %patch9 -p1 -b .esc
 #%patch10 -p1 -b .staticbuf
 
