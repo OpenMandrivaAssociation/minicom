@@ -1,12 +1,11 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.3
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
 Source:		http://alioth.debian.org/frs/download.php/1806/minicom-%{version}.tar.gz
-Source1:	%{name}.bash-completion
 Patch1:		minicom-2.3-ncurses.patch
 Patch2:		minicom-2.3-drop-privs.patch
 Patch3:		minicom-2.3-wchar.patch
@@ -63,10 +62,6 @@ rm -rf %{buildroot}
 
 install -D -m 644 doc/minicom.users %{buildroot}%{_sysconfdir}/minicom.users
 
-# bash completion
-install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d
-install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
-
 %find_lang %name
 
 %clean
@@ -75,7 +70,6 @@ rm -rf %{buildroot}
 %files -f %name.lang
 %defattr(-,root,root)
 %doc doc
-%{_sysconfdir}/bash_completion.d/%{name}
 %config(noreplace) %{_sysconfdir}/minicom.users
 %attr(755,root,dialout) %{_bindir}/minicom
 %{_bindir}/runscript
