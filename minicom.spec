@@ -1,7 +1,7 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.3
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPL
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
@@ -16,6 +16,7 @@ Patch8:		minicom-2.3-rh.patch
 Patch9:		minicom-2.2-esc.patch
 Patch10:	minicom-2.2-staticbuf.patch
 Patch11:	minicom-2.3-format_not_a_string_literal_and_no_format_arguments.diff
+Patch12:	minicom-2.3-getline_rename_fix.diff
 Requires:	lrzsz
 Requires:	setserial
 Requires:	lockdev-baudboy
@@ -48,6 +49,7 @@ read/write permissions on the serial port devices in order to use minicom.
 %patch9 -p0 -b .esc
 #%patch10 -p1 -b .staticbuf
 %patch11 -p1 -b .format_not_a_string_literal_and_no_format_arguments
+%patch12 -p0 -b .getline_rename_fix
 
 # minicom used wrong variable to check intl inside glibc
 perl -pi -e 's/gt_cv_func_gettext_libc/gt_cv_func_gnugettext1_libc/' configure
