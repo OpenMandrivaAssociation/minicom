@@ -1,26 +1,15 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.4
-Release:	%mkrel 3
+Version:	2.5
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
 Source:		http://alioth.debian.org/frs/download.php/3195/minicom-%{version}.tar.gz
-Patch1:		minicom-2.4-ncurses.patch
-Patch4:		minicom-2.4-umask.patch
-Patch6:		minicom-2.2-spaces.patch
-Patch7:		minicom-2.3-gotodir.patch
-Patch9:		minicom-2.4-esc.patch
-Patch10:	minicom-2.4-staticbuf.patch
-Patch12:	minicom-2.4-fix-format-error.patch
-Patch13:	minicom-2.4-rh.patch
-Patch14:	minicom-2.4-config.patch
 Requires:	lrzsz
 Requires:	setserial
 Requires:	lockdev-baudboy
 BuildRequires:	ncurses-devel
-BuildConflicts:	libtermcap-devel
-BuildRequires:	liblockdev-devel
 Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -36,21 +25,9 @@ read/write permissions on the serial port devices in order to use minicom.
 
 %prep
 %setup -q
-%patch1 -p1 -b .ncurses
-%patch4 -p1 -b .umask
-%patch6 -p1 -b .spaces
-%patch7 -p1 -b .gotodir
-%patch9 -p1 -b .esc
-%patch10 -p1 -b .staticbuf
-%patch12 -p1 -b .format
-%patch13 -p1 -b .rh
-%patch14 -p1 -b .config
-
-# minicom used wrong variable to check intl inside glibc
-#perl -pi -e 's/gt_cv_func_gettext_libc/gt_cv_func_gnugettext1_libc/' configure
 
 %build
-%configure2_5x
+%configure2_5x --disable-rpath
 %make
 
 %install
