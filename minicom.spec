@@ -1,16 +1,15 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.5
-Release:	%mkrel 2
+Version:	2.6.1
+Release:	1
 License:	GPLv2+
 Group:		Communications
 URL:		http://alioth.debian.org/projects/minicom/
-Source:		http://alioth.debian.org/frs/download.php/3195/minicom-%{version}.tar.gz
+Source:		http://alioth.debian.org/frs/download.php/3700/%{name}-%{version}.tar.gz
 Requires:	lrzsz
 Requires:	setserial
 Requires:	lockdev-baudboy
 BuildRequires:	ncurses-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Minicom is a simple text-based modem control and terminal emulation program
@@ -23,6 +22,7 @@ terminal emulator.
 Run 'minicom -s' as root to create a system wide configuration. Users need
 read/write permissions on the serial port devices in order to use minicom.
 
+
 %prep
 %setup -q
 
@@ -31,16 +31,11 @@ read/write permissions on the serial port devices in order to use minicom.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang %name
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %name.lang
-%defattr(-,root,root)
-%doc NEWS AUTHORS INSTALL README TODO
+%doc NEWS AUTHORS README TODO
 %doc doc/Announce* doc/COMPATABILITY.lrzsz doc/HistSearch
 %doc doc/Locales doc/Macros doc/QuickStart.modemu doc/README.lrzsz
 %doc doc/TODO.lrzsz doc/Todo* doc/copyright.modemu doc/fselector.txt
@@ -50,4 +45,4 @@ rm -rf %{buildroot}
 %{_bindir}/runscript
 %{_bindir}/xminicom
 %{_bindir}/ascii-xfr
-%{_mandir}/*/*
+%{_mandir}/man1/*.1*
