@@ -1,11 +1,11 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.6.2
-Release:	10
+Version:	2.7
+Release:	1
 License:	GPLv2+
 Group:		Communications
 Url:		http://alioth.debian.org/projects/minicom/
-Source0:	http://alioth.debian.org/frs/download.php/3869/minicom-%{version}.tar.gz
+Source0:	http://alioth.debian.org/frs/download.php/3977/minicom-%{version}.tar.gz
 BuildRequires:	pkgconfig(ncurses)
 Requires:	lrzsz
 Requires:	setserial
