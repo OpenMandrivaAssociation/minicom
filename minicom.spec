@@ -1,6 +1,6 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.7
+Version:	2.7.1
 Release:	1
 License:	GPLv2+
 Group:		Communications
