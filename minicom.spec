@@ -1,3 +1,5 @@
+%global optflags %{optflags} -fcommon
+
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.7.1
