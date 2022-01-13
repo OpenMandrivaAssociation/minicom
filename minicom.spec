@@ -1,13 +1,13 @@
-%global optflags %{optflags} -fcommon
+%define _disable_rebuild_configure 1
 
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
-Version:	2.7.1
-Release:	3
+Version:	2.8
+Release:	1
 License:	GPLv2+
 Group:		Communications
-Url:		http://alioth.debian.org/projects/minicom/
-Source0:	http://alioth.debian.org/frs/download.php/3977/minicom-%{version}.tar.gz
+Url:		https://salsa.debian.org/minicom-team/minicom
+Source0:	https://salsa.debian.org/minicom-team/minicom/-/archive/v%{version}.x/minicom-v%{version}.x.tar.bz2
 BuildRequires:	pkgconfig(ncurses)
 Requires:	lrzsz
 Requires:	setserial
@@ -24,16 +24,17 @@ Run 'minicom -s' as root to create a system wide configuration. Users need
 read/write permissions on the serial port devices in order to use minicom.
 
 %prep
-%setup -q
+%autosetup -p1 -n minicom-v%{version}.x
+./autogen.sh
 
 %build
 %configure --enable-music
 # Switch to more reasonable defaults... "Real" serial ports are virtually dead
 sed -i -e 's,ttyS1,ttyUSB0,g' config.h
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name}
 
 %files -f %{name}.lang
@@ -48,4 +49,3 @@ sed -i -e 's,ttyS1,ttyUSB0,g' config.h
 %{_bindir}/xminicom
 %{_bindir}/ascii-xfr
 %{_mandir}/man1/*
-
