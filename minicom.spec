@@ -9,6 +9,7 @@ Group:		Communications
 Url:		https://salsa.debian.org/minicom-team/minicom
 Source0:	https://salsa.debian.org/minicom-team/minicom/-/archive/v%{version}.x/minicom-v%{version}.x.tar.bz2
 BuildRequires:	pkgconfig(ncurses)
+BuildRequires:	gettext-devel
 Requires:	lrzsz
 Requires:	setserial
 
