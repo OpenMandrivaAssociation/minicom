@@ -3,7 +3,7 @@
 Summary:	A text-based modem control and terminal emulation program
 Name:		minicom
 Version:	2.8
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Communications
 Url:		https://salsa.debian.org/minicom-team/minicom
